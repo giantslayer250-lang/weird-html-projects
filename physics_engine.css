@@ -1,0 +1,136 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #111;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#controls button {
+    padding: 8px 14px;
+    font-size: 1rem;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #00f7ff;
+    background: rgba(0, 247, 255, 0.08);
+    border: 2px solid #00f7ff;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.4),
+    inset 0 0 10px rgba(0, 247, 255, 0.2);
+}
+
+/* Hover */
+#controls button:hover {
+    color: #000;
+    background: #00f7ff;
+    box-shadow: 
+    0 0 15px #00f7ff,
+    0 0 30px #00f7ff,
+    0 0 60px #00f7ff;
+    transform: translateY(-3px);
+}
+
+/* Click */
+#controls button:active {
+    transform: scale(0.96);
+}
+
+/* Animated shine */
+#controls button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.6s;
+}
+
+#controls button:hover::before {
+    left: 100%;
+}
+
+#controls button.btn2 {
+    color: #00f7ff;
+    background-color: rgba(13, 255, 0, 0.267);
+    color: white;
+}
+
+#controls button.btn2.active {
+    color: #00f7ff;
+    background-color: rgba(210, 25, 0, 0.267);
+    color: white;
+}
+
+#controls button.btn3:active {
+    background-color: blue;
+    color: white;
+}
+
+#controls button.btn4:active {
+    background-color: green;
+    color: white;
+}
+
+#airfriction-controls { 
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    z-index: 10; /* ensures controls are above the canvas */
+}
+
+#airfriction-controls button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    /* ensures buttons are above the canvas */
+}
